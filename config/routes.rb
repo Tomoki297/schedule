@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'tasks/index' => "tasks#index"
-  get 'tasks/show' => "tasks#show"
-  get 'tasks/store' => "tasks#store"
-  get 'tasks/update' => "tasks#update"
-  get 'tasks/destroy' => "tasks#destroy"
+  resources :tasks
   resources :events
   get "events:id" => "events#show"
   devise_for :admin_users, ActiveAdmin::Devise.config

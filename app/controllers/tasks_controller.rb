@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     @status = ['todo', 'doing', 'done']
   end
 
-  def store
+  def create 
     task = Task.new
     task.task = params[:task]
     task.state = params[:state]
