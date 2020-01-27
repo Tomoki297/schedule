@@ -1,0 +1,98 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  background: image-url("toppage.JPG");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#calendar {
+  width: 98%;
+  height: 5%;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  height: 130px;
+}
+
+.logo {
+  float: left;
+  font-weight: bold;
+  font-family: cursive;
+  font-size: 40px;
+  color: #fff;
+  padding: 30px;
+  text-decoration: none;
+}
+
+.list {
+  font-weight: bold;
+  float: right;
+  font-size: 40px;
+  padding: 30px;
+  color: #000;
+  text-decoration: none;
+}
+
+.logo:hover, .list:hover{
+  box-shadow: 0 10px 15px -5px rgba(0,0,0,.15),0 0 5px rgba(0,0,0,.1);
+  transform: translateY(-3px);
+  transition:: 0.3s;
+}
+
+.heading {
+  height: 30em;
+  position: relative;
+}
+
+.heading p {
+  font-size: 70px;
+  font-family: cursive;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+// table {
+//   width: 100%;
+//   height: 100vh;
+// }
+
+th {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+}
+
+td {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.fc-today{
+  color: #000;
+  opacity: 0.4;
+}
+
+.fc-sun {
+  color: #ff0000;
+  opacity: 0.8;
+}
+
+.fc-sat {
+  color: #0000ff;
+  opacity: 0.8;
+}

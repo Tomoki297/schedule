@@ -1,0 +1,8 @@
+<h1>現在の予定一覧</h1>
+<div class = "link">
+  <% @events.each do |event| %>
+    <p><%= link_to(event.title, event_path(event)) %></p>
+  <% end %>
+</div>
+
+<div class = "show" > <%= link_to 'Back', month_path %> </div>
