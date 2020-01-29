@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks
+  get "tasks:id" => "tasks#show"
   resources :events
   get "events:id" => "events#show"
   devise_for :admin_users, ActiveAdmin::Devise.config

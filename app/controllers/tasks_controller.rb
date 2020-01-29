@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+
   def index
     @task = Task.order('limit_date').all
     @status = ['todo', 'doing', 'done']
@@ -19,6 +20,10 @@ class TasksController < ApplicationController
     redirect_to '/tasks', notice: 'タスクを作成しました。'
   end
 
+  def edit
+    @task = Task.find(params[:id])
+  end
+
   def update
     id = params[:id]
     task = Task.find(1)
@@ -30,8 +35,15 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    task  = Task.find(params[:id])
+    @task = Task.find(params[:id])
     task.destroy
     redirect_to '/tasks', notice: 'タスクを削除しました。'
   end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:id)
+  end
+
 end
