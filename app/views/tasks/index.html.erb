@@ -1,23 +1,23 @@
 <form method="POST" action="/tasks">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div>
-    <label for="task">Task Name</label>
+    <label for="task">タイトル</label>
     <input id="task" name="task" type="text" required>
   </div>
   <div>
+    <label>タスクの種類</label>
     <select name="state">
       <% @status.each_with_index do |s,i| %>
       <option value="<%= s %>"><%= s %></option>
       <% end %>
     </select>
-    <label>Task State</label>
   </div>
   <div>
+    <label>締切日</label>
     <input type="date" name="limit_date" required>
-    <label>Task Limit Day</label>
   </div>
   <p>
-    <button type="submit">create</button>
+    <button type="submit">作成</button>
   </p>
 </form>
 
@@ -29,9 +29,9 @@
 <table>
   <thead>
     <tr>
-      <th>State</th>
-      <th>Limit</th>
-      <th>Task</th>
+      <th>タスクの種類</th>
+      <th>締切</th>
+      <th>タイトル</th>
       <th></th>
       <th></th>
     </tr>
@@ -42,10 +42,7 @@
       <td><%= t.state %></td>
       <td><%= t.limit_date %></td>
       <td><%= t.task %></td>
-      <td>
-        <!-- 次のタスク詳細取得画面へのリンク -->
-        <a href="/tasks/<%= t.id %>">edit</a>
-      </td>
+      <td><%= link_to 'Edit', edit_task_path(@task) %></td>
       <td>
         <!-- まだ実装しない -->
         <form method="POST" action="/tasks/<%= t.id %>">
