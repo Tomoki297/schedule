@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  
   def index
     @tasks = Task.all
   end
@@ -27,6 +27,10 @@ class TasksController < ApplicationController
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @task = Task.find(params[:id])
   end
 
   def update
@@ -59,4 +63,5 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:state, :task, :limit_date)
   end
+
 end
