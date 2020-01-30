@@ -1,57 +1,8 @@
-<form method="POST" action="/tasks">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div>
-    <label for="task">タイトル</label>
-    <input id="task" name="task" type="text" required>
-  </div>
-  <div>
-    <label>タスクの種類</label>
-    <select name="state">
-      <% @status.each_with_index do |s,i| %>
-      <option value="<%= s %>"><%= s %></option>
-      <% end %>
-    </select>
-  </div>
-  <div>
-    <label>締切日</label>
-    <input type="date" name="limit_date" required>
-  </div>
-  <p>
-    <button type="submit">作成</button>
-  </p>
-</form>
+<h1>現在のTodoリスト</h1>
+<div class = "link">
+  <% @tasks.each do |task| %>
+    <p><%= link_to(task.task, task_path(task)) %></p>
+  <% end %>
+</div>
 
-<!-- flashメッセージを表示 -->
-<% flash.each do |msg| %>
-<p><%= msg %></p>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>タスクの種類</th>
-      <th>締切</th>
-      <th>タイトル</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @task.each do |t| %>
-    <tr>
-      <td><%= t.state %></td>
-      <td><%= t.limit_date %></td>
-      <td><%= t.task %></td>
-      <td><%= link_to 'Edit', edit_task_path(@task) %></td>
-      <td>
-        <!-- まだ実装しない -->
-        <form method="POST" action="/tasks/<%= t.id %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      　   <button type="submit">delete</button>
-        </form>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class = "show" > <%= link_to 'Back', month_path %> </div>
