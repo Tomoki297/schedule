@@ -2,5 +2,7 @@
 
 <%= render 'form', task: @task %>
 
-<%= link_to 'Show', @task %>
-<%= link_to 'Back', tasks_path %>
+<div class = "show" >
+  <%= link_to '詳細', @task %>
+  <%= link_to 'Todo一覧', tasks_path %>
+</div>

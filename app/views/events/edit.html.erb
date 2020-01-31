@@ -2,5 +2,7 @@
 
 <%= render 'form', event: @event %>
 
-<%= link_to 'Show', @event %>
-<%= link_to 'Back', events_path %>
+<div class = "show" >
+  <%= link_to '詳細', @event %>
+  <%= link_to '予定一覧', events_path %>
+</div>

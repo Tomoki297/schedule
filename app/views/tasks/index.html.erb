@@ -1,8 +1,12 @@
 <h1>現在のTodoリスト</h1>
 <div class = "link">
   <% @tasks.each do |task| %>
-    <p><%= link_to(task.task, task_path(task)) %></p>
+    <p>
+      <%= link_to(task.task, task_path(task)) %>
+    </p>
   <% end %>
 </div>
 
-<div class = "show" > <%= link_to 'Back', month_path %> </div>
+<div class = "show" >
+  <%= link_to 'カレンダーへ', month_path %>
+ </div>
