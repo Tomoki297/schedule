@@ -1,14 +1,35 @@
-<p id="notice"><%= notice %></p>
+<p id="notice">
+  <%= notice %>
+</p>
 
-<div class = "show" > 予定のタイトル </div>
-<div class = "data" > <%= @event.title %> </div>
-<div class = "show" > 背景色 </div>
-<div class = "data" > <%= @event.backgroundColor %> </div>
-<div class = "show" > 予定開始時間 </div>
-<div class = "data" > <%= @event.start %> </div>
-<div class = "show" > 予定終了時間 </div>
-<div class = "data" > <%= @event.end %> </div>
+<div class = "show" >
+  予定のタイトル
+</div>
+<div class = "data" >
+  <%= @event.title %>
+</div>
+<div class = "show" >
+  背景色
+</div>
+<div class = "data" >
+  <%= @event.backgroundColor %>
+</div>
+<div class = "show" >
+  予定開始時間
+</div>
+<div class = "data" >
+  <%= @event.start %>
+</div>
+<div class = "show" >
+  予定終了時間
+</div>
+<div class = "data" >
+  <%= @event.end %>
+</div>
 <br>
 
-<div class = "show" > <%= link_to 'Edit', edit_event_path(@event) %> </div>
-<div class = "show" > <%= link_to 'Back', events_path %> </div>
+<div class = "show" >
+  <%= link_to '編集', edit_event_path(@event) %>
+  <%= link_to '予定一覧', events_path %>
+  <%= link_to '削除', event_path(@event), method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+</div>
