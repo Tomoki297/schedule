@@ -2,9 +2,16 @@
   <div class = "logo">
     <%= link_to 'Time is Mine', top_path, :style => "color: #fff;" %>
   </div>
-  <div class = "list">
-    <%= link_to '予定帳', month_path, :style => "color: #fff;" %>
-   </div>
+  <% if current_admin_user.nil? %>
+    <div class = "list">
+      <%= link_to '新規登録', month_path, :style => "color: #fff;" %>
+      <%= link_to 'ログイン', new_admin_user_session_path, :style => "color: #fff;" %>
+    </div>
+  <% else %>
+    <div class = "list">
+      <%= link_to '予定帳', month_path, :style => "color: #fff;" %>
+    </div>
+  <% end %>
 </div>
 
 <div class = "main">

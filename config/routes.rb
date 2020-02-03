@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :events
   get "events:id" => "events#show"
   devise_for :admin_users, ActiveAdmin::Devise.config
+  # devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions" }
   ActiveAdmin.routes(self)
+  root 'home#top'
   get 'top' => "home#top"
   get 'about' => "home#about"
   get 'schedule' => "home#schedule"
