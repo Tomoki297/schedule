@@ -33,3 +33,33 @@ h1 {
   font-size: 30px;
   font-weight: bold;
 }
+
+.checkmark003{
+  margin-left: 20px;
+	padding-left:24px;
+	position:relative;
+}
+
+.checkmark003:before,.checkmark003:after{
+	content:"";
+	display:block;
+	position:absolute;
+}
+.checkmark003:before{
+	width:28px;
+	height:28px;
+	border-radius:8px;
+	background:#ffffff;
+	border:1px solid #000000;
+	left:0;top:2px;
+}
+.checkmark003:after{
+	border-left:2px solid #ff0000;
+	border-bottom:2px solid #ff0000;
+	width:30px;
+	height:10px;
+	-webkit-transform:rotate(-45deg);
+	transform:rotate(-45deg);
+	left:5px;
+	top:3px;
+}
