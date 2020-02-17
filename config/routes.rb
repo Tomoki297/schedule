@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :tasks
+  resources :tasks do
+    member do
+      delete 'real_destroy'
+    end
+
+    collection do
+      get 'complete'
+    end
+  end
+
   get "tasks:id" => "tasks#show"
   resources :events
   get "events:id" => "events#show"

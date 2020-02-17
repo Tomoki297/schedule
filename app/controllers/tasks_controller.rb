@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-    before_action :set_task, only: [:show, :edit, :update, :destroy]
-  
+    before_action :set_task, only: [:show, :edit, :update, :destroy, :real_destroy]
+
   def index
     @tasks = Task.all
   end
@@ -8,11 +8,12 @@ class TasksController < ApplicationController
   def show
   end
 
-  def new
-    @task = Task.new
+  def complete
+    @tasks = Task.with_deleted.where.not(deleted_at: nil)
   end
 
-  def edit
+  def new
+    @task = Task.new
   end
 
   def create
@@ -47,6 +48,14 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
+    respond_to do |format|
+      format.html { redirect_to tasks_url, notice: 'User was successfully completed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def real_destroy
+    @task.really_destroy!
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }

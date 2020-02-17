@@ -1,9 +1,8 @@
-<h1>現在のTodoリスト</h1>
+<h1>完了済みのTodoリスト</h1>
 <div class = "link">
   <% @tasks.each do |task| %>
     <p>
       <%= link_to(task.task, task_path(task)) %>
-      <%= link_to '', task_path(task), { method: :delete, data: { confirm: 'タスクを完了しますか？' }, class: "checkmark003" }%>
       <%= link_to '削除',  real_destroy_task_path(task), { method: :delete, data: { confirm: 'タスクを削除しますか？' } }%>
     </p>
   <% end %>
