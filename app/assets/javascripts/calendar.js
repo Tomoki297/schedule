@@ -13,7 +13,11 @@ $(document).on('turbolinks:load', function() {
      allDayText: '終日',
      slotLabelFormat: "H:mm",
      minTime: "06:00:00",
-     maxTime: "24:00:00"
+     maxTime: "24:00:00",
+
+     eventClick: function(calEvent, jsEvent, view) {
+       window.location.href = "http://localhost:3000/events/" + calEvent.id
+     },
   });
   return
 });
