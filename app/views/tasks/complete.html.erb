@@ -3,11 +3,12 @@
   <% @tasks.each do |task| %>
     <p>
       <%= link_to(task.task, task_path(task)) %>
-      <%= link_to '削除',  real_destroy_task_path(task), { method: :delete, data: { confirm: 'タスクを削除しますか？' } }%>
+      <%= link_to '',  real_destroy_task_path(task), { method: :delete, data: { confirm: 'タスクを削除しますか？' }, class: "closemark" }%>
     </p>
   <% end %>
 </div>
 
 <div class = "show" >
   <%= link_to 'カレンダーへ', month_path %>
+  <%= link_to 'タスク一覧へ', tasks_path %>
  </div>
