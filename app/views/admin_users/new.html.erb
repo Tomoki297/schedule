@@ -1,0 +1,24 @@
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">新規ユーザー登録</div>
+    <div class="form users-form">
+      <div class="form-body">
+        <% @admin_user.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= form_tag(admin_admin_users_path, method: :post) do %>
+          <p>ユーザー名</p>
+          <input name="name" value="<%= @admin_user.username %>">
+          <p>メールアドレス</p>
+          <input name="email" value="<%= @admin_user.email %>">
+          <p>パスワード</p>
+          <input name = "password" type = "password" value = "<%= @admin_user.encrypted_password %>" >
+          <input type="submit" value="新規登録">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
