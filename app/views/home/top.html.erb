@@ -5,11 +5,12 @@
   <% if current_admin_user.nil? %>
     <div class = "list">
       <%= link_to '新規登録', month_path, :style => "color: #fff;" %>
-      <%= link_to 'ログイン', new_admin_user_session_path, :style => "color: #fff;" %>
+      <%= link_to 'ログイン', login_path, :style => "color: #fff;" %>
     </div>
   <% else %>
     <div class = "list">
       <%= link_to '予定帳', month_path, :style => "color: #fff;" %>
+      <%= link_to 'ログアウト', logout_path, :method => :post, :style => "color: #fff;" %>
     </div>
   <% end %>
 </div>
