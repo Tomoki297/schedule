@@ -1,5 +1,6 @@
 class AdminUsersController < ApplicationController
 
+
   def show
     @admin_user = AdminUser.find_by(id: params[:id])
   end
@@ -27,7 +28,8 @@ class AdminUsersController < ApplicationController
     @admin_user.username = params[:username]
     @admin_user.email = params[:email]
 
-    if @adminuser.save
+
+    if @admin_user.save
       redirect_to admin_admin_user_path, notice: "ユーザー情報を編集しました"
     else
       render :edit
@@ -46,6 +48,7 @@ class AdminUsersController < ApplicationController
       @error_message = "メールアドレスまたはパスワードが間違っています"
 
       @email = params[:email]
+
       render :login_form
     end
   end
@@ -54,6 +57,7 @@ class AdminUsersController < ApplicationController
     session[:admin_user_id] = nil
     redirect_to login_path, notice: "ログアウトしました"
   end
+
 
 private
 

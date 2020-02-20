@@ -1,6 +1,10 @@
 <div class = "header">
   <div class = "logo">
-    <%= link_to 'Time is Mine', top_path, :style => "color: #fff;" %>
+    <% if @current_admin_user %>
+      <%= link_to 'Time is Mine', top_path, :style => "color: #fff;" %>
+    <% else %>
+      <%= link_to 'Time is Mine', top_path, :style => "color: #fff;" %>
+    <% end %>
   </div>
   <% if current_admin_user.nil? %>
     <div class = "list">
