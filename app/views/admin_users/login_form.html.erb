@@ -4,23 +4,17 @@
     <div class="form users-form">
       <div class="form-body">
         <% if @error_message %>
-          <div class = "form-error">
+          <div class="form-error">
             <%= @error_message %>
           </div>
         <% end %>
-        <%= form_tag(login_path, method: :post) do %>
+        <%= form_tag(login_path) do %>
           <p>メールアドレス</p>
           <input name = "email" value = "<%= @email %>">
           <p>パスワード</p>
-          <input type = "password" name = "password" value = "<%= @encrypted_password %>">
+          <input type = "password" name = "password">
           <input type="submit" value="ログイン">
         <% end %>
-        <% if session[:user_id] %>
-          <li>
-            現在ログインしているユーザーのid:
-            <%= session[:user_id] %>
-          </li>
-          <% end %>
       </div>
     </div>
   </div>

@@ -14,7 +14,7 @@
   <% else %>
     <div class = "list">
       <%= link_to '予定帳', month_path, :style => "color: #fff;" %>
-      <%= link_to 'ログアウト', login_path, :style => "color: #fff;" %>
+      <%= link_to 'ログアウト', logout_path, :method => :post, :style => "color: #fff;" %>
     </div>
   <% end %>
 </div>

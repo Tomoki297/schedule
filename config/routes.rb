@@ -18,9 +18,12 @@ Rails.application.routes.draw do
   root 'home#top'
   get 'top' => "home#top"
   get 'month' => "home#month"
-  get 'new' => "admin_users#new"
+
   get 'login' => "admin_users#login_form"
   post 'login' => "admin_users#login"
-  post 'logout' => "admin_users#logout"
+  post "logout" => "admin_users#logout"
+
+  post 'create' => "admin_users#create"
+  get 'signup' => "admin_users#new"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

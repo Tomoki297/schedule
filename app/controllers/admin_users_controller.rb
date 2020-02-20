@@ -1,8 +1,5 @@
 class AdminUsersController < ApplicationController
 
-  def index
-    @admin_users = AdminUser.all
-  end
 
   def show
     @admin_user = AdminUser.find_by(id: params[:id])
@@ -13,16 +10,12 @@ class AdminUsersController < ApplicationController
   end
 
   def create
-    @admin_user = AdminUser.new(
-      username: params[:username],
-      email: params[:email],
-      encrypted_password: params[:encrypted_password]
-    )
+    @admin_user = AdminUser.new(admin_user_params)
     if @admin_user.save
-      session[:adimn_user_id] = @admin_user.id
-      redirect_to admin_admin_users_path, notice: "ユーザー登録が完了しました"
+      session[:admin_user_id] = @admin_user.id
+      redirect_to admin_admin_user_path, notice: "ユーザー登録が完了しました"
     else
-      render new_admin_admin_user_path
+      render :new
     end
   end
 
@@ -35,10 +28,11 @@ class AdminUsersController < ApplicationController
     @admin_user.username = params[:username]
     @admin_user.email = params[:email]
 
+
     if @admin_user.save
       redirect_to admin_admin_user_path, notice: "ユーザー情報を編集しました"
     else
-      render edit_admin_admin_user_path
+      render :edit
     end
   end
 
@@ -47,13 +41,14 @@ class AdminUsersController < ApplicationController
 
   def login
     @admin_user = AdminUser.find_by(email: params[:email], encrypted_password: params[:encrypted_password])
-    if @admin_user
-      session[:admin_user_id] = @adimn_user.id
+    if @admin_users
+      session[:admin_user_id] = @admin_user.id
       redirect_to top_path, notice: "ログインしました"
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
+
       @email = params[:email]
-      @encrypted_password = params[:encrypted_password]
+
       render :login_form
     end
   end
@@ -61,6 +56,13 @@ class AdminUsersController < ApplicationController
   def logout
     session[:admin_user_id] = nil
     redirect_to login_path, notice: "ログアウトしました"
+  end
+
+
+private
+
+  def admin_user_params
+    params.require(:admin_user).permit(:username, :email, :password)
   end
 
 end

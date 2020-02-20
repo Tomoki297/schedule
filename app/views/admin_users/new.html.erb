@@ -9,13 +9,13 @@
           </div>
         <% end %>
 
-        <%= form_tag(admin_admin_users_path, method: :post) do %>
+        <%= form_tag admin_admin_users_path, method: :post do %>
           <p>ユーザー名</p>
-          <input name="name" value="<%= @admin_user.username %>">
+          <input name = "username" value="<%= @admin_user.username %>">
           <p>メールアドレス</p>
           <input name="email" value="<%= @admin_user.email %>">
           <p>パスワード</p>
-          <input name = "password" type = "password" value = "<%= @admin_user.encrypted_password %>" >
+          <input name = "password" type = "password" value = "<%= @admin_user.password %>" >
           <input type="submit" value="新規登録">
         <% end %>
       </div>
