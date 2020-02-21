@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: schedule_production
   username: schedule
   password: <%= ENV['SCHEDULE_DATABASE_PASSWORD'] %>
