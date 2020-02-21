@@ -9,23 +9,17 @@
           </div>
         <% end %>
 
-        <%= form_for(@admin_user) do |form| %>
+        <%= form_with(model: @admin_user, url: create_path) do |form| %>
           <%= form.label :username, "ユーザー名" %>
           <%= form.text_field :username %>
+          <br>
           <%= form.label :email, "メールアドレス" %>
           <%= form.email_field :email %>
+          <br>
           <%= form.label :password, "パスワード" %>
           <%= form.password_field :password %>
-          <% form.submit %>
-
-          <%# <%= form_tag(create_path, method: "post") do %> %>
-          <%# <p>ユーザー名</p> %>
-          <%# <input name = "username" value="<%= @admin_user.username %>"> %>
-          <%# <p>メールアドレス</p> %>
-          <%# <input name="email" value="<%= @admin_user.email %>"> %>
-          <%# <p>パスワード</p> %>
-          <%# <input name = "password" type = "password" value = "<%= @admin_user.password %>" > %>
-          <%# <input type="submit" value="新規登録"> %>
+          <br>
+          <%= form.submit %>
         <% end %>
       </div>
     </div>

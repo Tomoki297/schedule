@@ -12,7 +12,7 @@ class AdminUsersController < ApplicationController
     @admin_user = AdminUser.new(admin_user_params)
     if @admin_user.save
       session[:admin_user_id] = @admin_user.id
-      redirect_to create_path, notice: "ユーザー登録が完了しました"
+      redirect_to top_path, notice: "ユーザー登録が完了しました"
     else
       render :new
     end
@@ -38,7 +38,7 @@ class AdminUsersController < ApplicationController
   end
 
   def login
-    @admin_user = AdminUser.find_by(email: params[:email], encrypted_password: params[:encrypted_password])
+    @admin_user = AdminUser.find_by(email: params[:email], encrypted_password: params[:password])
     if @admin_users
       session[:admin_user_id] = @admin_user.id
       redirect_to top_path, notice: "ログインしました"
@@ -58,7 +58,7 @@ class AdminUsersController < ApplicationController
 private
 
   def admin_user_params
-    params.permit(:username, :email, :password)
+    params.require(:admin_user).permit(:username, :email, :password)
   end
 
 end
