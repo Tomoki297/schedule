@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def forbid_login_admin_user
     if @current_admin_user
-      redirect_to month_path, notice: "すでにログインしています"
+      redirect_to top_path, notice: "すでにログインしています"
     end
   end
 
