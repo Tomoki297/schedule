@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  rescue_from SecurityError do |exception|
+    redirect_to top_path, notice: "管理者画面へのアクセス権限がありません"
+  end
+
 end

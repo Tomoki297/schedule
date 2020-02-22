@@ -4,14 +4,19 @@ class Admins::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    super
+    redirect_to top_path, notice: "ログインしました"
+  end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    if super
+      redirect_to top_path
+    else
+      render :new
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy
