@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_admin_user
+  # before_action :set_current_admin_user
 
-  def set_current_admin_user
-    @current_admin_user = AdminUser.find_by(id: session[:admin_user_id])
-  end
+  # def set_current_admin_user
+  #   @current_admin_user = AdminUser.find_by(id: session[:admin_user_id])
+  # end
 
   def authenticate_admin_user
     if @current_admin_user == nil
